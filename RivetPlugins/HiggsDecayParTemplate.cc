@@ -22,21 +22,31 @@ namespace Rivet {
 
       book(hist_pT_Higgs,   "pT_Higgs",80,0,400);
       // int ram = 3.0;
+      m_sumw = 0.0;
     }
 
     /// Perform the per-event analysis
     void analyze(const Event& event) {
       // std::cout << "Ram Krishna Sharma" << std::endl;
         const double weight = 1.0;
+        m_sumw += weight;
 
         for ( const GenParticle *ptcl : Rivet::HepMCUtils::particles(event.genEvent()) )
         {
-          // std::cout << "=====================" << std::endl;
-          // std::cout << "\tpdgID: "  << ptcl->pdg_id()         << std::endl;
-          // std::cout << "\tStatus: " << ptcl->status()         << std::endl;
-          // std::cout << "\tpT: "     << ptcl->momentum().perp()<< std::endl;
 
-          hist_pT_Higgs->fill(ptcl->momentum().perp());
+          //if (ptcl->pdg_id()  == 25)
+          //if( PID::isHiggs(ptcl->pdg_id()) && !ptcl->production_vertex() )
+          if( PID::isHiggs(ptcl->pdg_id())  )
+          {
+             std::cout << "=====================" << std::endl;
+             std::cout << "\tpdgID: "  << ptcl->pdg_id()         << std::endl;
+             std::cout << "\tStatus: " << ptcl->status()         << std::endl;
+             std::cout << "\tpT: "     << ptcl->momentum().perp()<< std::endl;
+             std::cout << "\tweight: " << m_sumw << "\t" << weight << std::endl;
+            hist_pT_Higgs->fill(ptcl->momentum().perp(),weight);
+            // hist_pT_Higgs->fill(ptcl->momentum().perp());
+          }
+
         }
 
 
@@ -52,6 +62,7 @@ namespace Rivet {
 
   private:
       Histo1DPtr hist_pT_Higgs;
+      double m_sumw;
 
   };
 

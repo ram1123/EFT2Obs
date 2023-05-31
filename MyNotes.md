@@ -26,7 +26,7 @@ python scripts/make_reweight_card.py config_HEL_STXS.json cards/hemu_sq/reweight
 ./scripts/make_gridpack.sh hemu_sq
 
 
-export HIGGSPRODMODE=ZH
+# export HIGGSPRODMODE=ZH
 python scripts/run_gridpack.py --gridpack gridpack_hemu_sq.tar.gz -s 1 -e 500 -p HiggsDecayParTemplate  -o hemu_sq --rivet-ignore-beams
 
 

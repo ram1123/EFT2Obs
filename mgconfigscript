@@ -1,0 +1,5 @@
+set lhapdf /afs/cern.ch/user/r/rasharma/work/generator_studies/EFT2Obs_New/EFT2Obs/lhapdf/bin/lhapdf-config
+set auto_update 0
+set automatic_html_opening False
+save options
+install pythia8
