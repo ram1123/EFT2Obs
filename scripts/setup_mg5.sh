@@ -8,7 +8,7 @@ if [ -z "${LHAPDF_CONFIG_PATH}" ]; then echo "ERROR: environment variable LHAPDF
 if [ -z "${MG_DIR}" ]; then echo "ERROR: environment variable MG_DIR is not set"; exit 1; fi
 if [ -z "${MG_TARBALL}" ]; then echo "ERROR: environment variable MG_TARBALL is not set"; exit 1; fi
 
-LHAPDF_VERSION="LHAPDF-6.2.1"
+LHAPDF_VERSION="LHAPDF-6.5.4"
 wget "https://lhapdf.hepforge.org/downloads/?f=${LHAPDF_VERSION}.tar.gz" -O "${LHAPDF_VERSION}.tar.gz"
 tar xf "${LHAPDF_VERSION}.tar.gz"
 rm "${LHAPDF_VERSION}.tar.gz"
@@ -25,7 +25,7 @@ if [ -d "${MG_DIR}" ]; then
   echo "Directory ${MG_DIR} already exists, remove this first to re-install"
   exit 1
 fi
-wget "https://launchpad.net/mg5amcnlo/lts/2.6.x/+download/${MG_TARBALL}"
+wget "https://launchpad.net/mg5amcnlo/3.0/3.5.x/+download/${MG_TARBALL}"
 tar -zxf "${MG_TARBALL}"
 rm "${MG_TARBALL}"
 
