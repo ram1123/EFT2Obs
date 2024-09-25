@@ -103,7 +103,7 @@ which creates the directory `MG5_aMC_v2_6_7/zh-HEL`.
 
 For an NLO process (with `[QCD]` in the process definition), use the `setup_process_NLO.sh` script instead.
 
-> :information_source: A process directory can also be located in a subdirectory within `cards`. Some commands must then be adapted, e.g. `./scripts/setup_process.sh mydir/zh-HEL`. The `output [dir]` command in `proc_card.dat` should still give only the final directory, e.g. `zh-HEL`. 
+> :information_source: A process directory can also be located in a subdirectory within `cards`. Some commands must then be adapted, e.g. `./scripts/setup_process.sh mydir/zh-HEL`. The `output [dir]` command in `proc_card.dat` should still give only the final directory, e.g. `zh-HEL`.
 
 ### Prepare Madgraph cards
 
@@ -121,8 +121,7 @@ For NLO generation some care must be taken with the `run_card.dat`:
 To define `param_card.dat` and create `reweight_card.dat` we first need to make an EFT2Obs-specific configuration file that will keep track of which (subset of) model parameters we want to study and what values they should be set to in the reweighting procedure. The initial config is generated with
 
 ```
-python scripts/make_config.py -p zh-HEL -o config_HEL_STXS.json \
-  --pars newcoup:4,5,6,7,8,9,10,11,12 --def-val 0.01 --def-sm 0.0 --def-gen 0.0
+python scripts/make_config.py -p tWZj_LO_5f -o config_tWZj_LO_5f.json  --pars newcoup:1,9,10,13,14,15,16,17,18,19,20,34,35 --def-val 0.01 --def-sm 0.0 --def-gen 0.0
 ```
 
 where:
@@ -168,7 +167,7 @@ Note that all parameters in the specified blocks not explicitly listed here will
 Next we make the `param_card.dat` that will be used for the initial event generation:
 
 ```sh
-python scripts/make_param_card.py -p zh-HEL -c config_HEL_STXS.json -o cards/zh-HEL/param_card.dat
+python scripts/make_param_card.py -p tWZj_LO_5f -c config_tWZj_LO_5f.json -o cards/tWZj_LO_5f/param_card.dat
 ```
 
 The script take the default card in `MG5_aMC_v2_6_7/zh-HEL/Cards` and will report which parameter values are changed.
@@ -178,7 +177,7 @@ The script take the default card in `MG5_aMC_v2_6_7/zh-HEL/Cards` and will repor
 The reweight card specifies a set of parameter points that should be evaluated in the matrix element reweighting step. It is generated using the config with:
 
 ```sh
-python scripts/make_reweight_card.py config_HEL_STXS.json cards/zh-HEL/reweight_card.dat
+python scripts/make_reweight_card.py config_tWZj_LO_5f.json cards/tWZj_LO_5f/reweight_card.dat
 ```
 
 For NLO processes, an extra line should be added to the `reweight_card.dat` to select the NLO-correct reweighting mode (if desired):
@@ -192,7 +191,7 @@ python scripts/make_reweight_card.py config_HEL_STXS.json cards/zh-HEL/reweight_
 To make the event generation more efficient and easier to run in parallel we first produce a gridpack for the process:
 
 ```sh
-./scripts/make_gridpack.sh zh-HEL # for LO
+./scripts/make_gridpack.sh tWZj_LO_5f # for LO
 ./scripts/make_gridpack_NLO.sh zh-HEL  # for NLO
 ```
 

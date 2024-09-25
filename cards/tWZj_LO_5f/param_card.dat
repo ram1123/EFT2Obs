@@ -21,7 +21,7 @@ BLOCK MASS #
       16 0.000000e+00 # vt : 0.0
       21 0.000000e+00 # g : 0.0
       22 0.000000e+00 # a : 0.0
-      23 8.955833e+01 # z : cmath.sqrt((gw__exp__2*(1 - ct + (8*ca*sw__exp__4)/cw__exp__2)*vev__exp__2)/cw__exp__2)/2.
+      23 9.163403e+01 # z : cmath.sqrt((gw__exp__2*(1 - ct + (8*ca*sw__exp__4)/cw__exp__2)*vev__exp__2)/cw__exp__2)/2.
 ###################################
 ## INFORMATION FOR NEWCOUP
 ###################################
@@ -33,7 +33,7 @@ BLOCK NEWCOUP #
 BLOCK SMINPUTS # 
       1 1.279000e+02 # aewm1
       2 1.166370e-05 # gf
-      3 1.184000e-01 # as (note that parameter not used if you use a pdf set)
+      3 1.300000e-01 # as (note that parameter not used if you use a pdf set)
 ###################################
 ## INFORMATION FOR YUKAWA
 ###################################

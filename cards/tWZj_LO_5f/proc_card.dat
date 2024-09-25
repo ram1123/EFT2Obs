@@ -11,8 +11,8 @@ define p = g u c d s u~ c~ d~ s~
 define j = g u c d s u~ c~ d~ s~
 set low_mem_multicore_nlo_generation
 set nb_core 4
-generate p b > j w- z t QCD=0 QED=99 NP=2
-add process b p > j w- z t QCD=0 QED=99 NP=2
-add process p b~ > j w+ z t~ QCD=0 QED=99 NP=2
-add process b~ p > j w+ z t~ QCD=0 QED=99 NP=2
+generate p b > j w- z t QCD=0 QED=99 NP<=2
+add process b p > j w- z t QCD=0 QED=99 NP<=2
+add process p b~ > j w+ z t~ QCD=0 QED=99 NP<=2
+add process b~ p > j w+ z t~ QCD=0 QED=99 NP<=2
 output tWZj_LO_5f --nojpeg

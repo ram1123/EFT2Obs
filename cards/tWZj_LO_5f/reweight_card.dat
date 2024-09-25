@@ -1,7 +1,7 @@
 change rwgt_dir rwgt
 launch --rwgt_name=rw0000
-set newcoup 1 0
+set NEWCOUP 1 0
 launch --rwgt_name=rw0001
-set newcoup 1 0.005
+set NEWCOUP 1 0.005
 launch --rwgt_name=rw0002
-set newcoup 1 0.01
+set NEWCOUP 1 0.01
